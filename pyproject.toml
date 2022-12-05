@@ -1,0 +1,60 @@
+[tool.poetry]
+authors = ["Bryan Matteson <bryan@matteson.dev>"]
+description = "A collection of (experimental) tools"
+name = "cbtoolz"
+packages = [{include = "cbtoolz", from = "src"}]
+version = "0.0.1"
+
+[tool.poetry.dependencies]
+async-timeout = "^4.0.2"
+dpath = "^2.0.6"
+httpx = "*"
+more-itertools = "^8.12.0"
+multidict = "^6.0.2"
+pendulum = "^2.1.2"
+pydantic = {extras = ["dotenv"], version = "^1.9.0"}
+python = "^3.8"
+
+[tool.poetry.group.dev.dependencies]
+black = "^22.3.0"
+flexmock = "^0.11.3"
+pytest = "^7.1.2"
+pytest-asyncio = "^0.18.3"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core>=1.0.0"]
+
+[tool.isort]
+ensure_newline_before_comments = true
+force_grid_wrap = 0
+include_trailing_comma = true
+line_length = 120
+multi_line_output = 3
+use_parentheses = true
+
+[tool.pycln]
+all = true
+
+[tool.black]
+include = "\\.(py)$"
+line-length = 120
+target-version = ["py38"]
+
+[tool.mypy]
+disallow_untyped_defs = true
+files = "src/cbtoolz"
+ignore_missing_imports = true
+show_traceback = true
+
+[tool.pyright]
+exclude = ["**/__pycache__"]
+ignore = []
+include = ["src/cbtoolz"]
+typeCheckingMode = "basic"
+
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+pythonPlatform = "All"
+pythonVersion = "3.8"
